@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <div class="col-3 generate">
+    <app-generate-activity
+      (submitFavorite)="submitFavoriteActivity($event)"
+    ></app-generate-activity>
+  </div>
+  <app-favorite-activity
+    [activitiesList]="activitiesList"
+  ></app-favorite-activity>
+</div>

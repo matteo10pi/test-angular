@@ -1,0 +1,32 @@
+<div class="generate-container">
+  <button class="btn btn-primary mt-5 mb-3" (click)="generateActivity()">
+    Genera Attività
+  </button>
+  <div class="description" *ngIf="showCurrent">
+    <h3>{{ currentActivity.activity }}</h3>
+    <ul>
+      <li>
+        <span>Difficoltà:</span>
+        {{ currentActivity.accessibility }}
+      </li>
+      <li>
+        <span>Tipo:</span>
+        {{ currentActivity.type }}
+      </li>
+      <li>
+        <span>Partecipanti:</span>
+        {{ currentActivity.participants }}
+      </li>
+      <li>
+        <span>Prezzo:</span>
+        {{ currentActivity.price }}
+      </li>
+      <li *ngIf="currentActivity.link.length > 1">
+        <span>Link:</span>{{ currentActivity.link }}
+      </li>
+    </ul>
+    <button class="btn btn-warning mt-5 mb-3" (click)="saveActivity()">
+      Salva Preferito
+    </button>
+  </div>
+</div>

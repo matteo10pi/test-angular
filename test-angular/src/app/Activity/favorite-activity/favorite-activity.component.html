@@ -1,0 +1,35 @@
+<div class="container">
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Attività</th>
+        <th scope="col">Difficoltà</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Partecipanti</th>
+        <th scope="col">Prezzo</th>
+        <th scope="col">Link</th>
+        <th scope="col">Elimina</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="activitiesList.length > 0">
+      <tr *ngFor="let activity of activitiesList" [ngClass]="color(activity)">
+        <td>{{ activity.activity }}</td>
+        <td>{{ activity.accessibility }}</td>
+        <td>{{ activity.type }}</td>
+        <td>{{ activity.participants }}</td>
+        <td>{{ activity.price }}</td>
+        <td *ngIf="activity.link.length > 0; else tdlink">
+          {{ activity.link }}
+        </td>
+
+        <td>
+          <button class="btn btn-danger" (click)="removeActivity(activity)">
+            Rimuovi
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="activitiesList.length == 0">Nessuna attività preferita</p>
+</div>
+<ng-template #tdlink><td>Nessun link correlato</td></ng-template>
