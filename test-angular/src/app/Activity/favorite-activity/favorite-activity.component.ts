@@ -17,12 +17,12 @@ export class FavoriteActivityComponent implements OnInit {
     localStorage.setItem('activityList', JSON.stringify(this.activitiesList));
   }
   color(activity: Activity) {
-    if (activity.accessibility > 0.5) {
-      return 'table-success';
+    if (activity.accessibility >= 0.5) {
+      return 'table-danger';
     } else if (activity.accessibility < 0.3) {
       return 'table-warning';
     } else {
-      return 'table-danger';
+      return 'table-success';
     }
   }
 }
